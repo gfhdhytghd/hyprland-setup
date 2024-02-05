@@ -250,6 +250,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln -sf ~/.config/HyprV/waybar/style/v2-style-dark.css ~/.config/waybar/style.css
     cp ~/.config/HyprV/wlogout/* ~/.config/wlogout/
     ln -sf ~/.config/HyprV/wlogout/* ~/.config/wlogout/
+    sudo rm /usr/share/wlogout/icons/*
+    sudo cp ~/.config/HyprV/wlogout/icons/* /usr/share/wlogout/icons/
     ln -sf ~/.config/HyprV/wofi/config ~/.config/wofi/config
     ln -sf ~/.config/HyprV/fusuma/config.yml ~/.config/fusuma/config.yml
     ln -sf ~/.config/HyprV/wofi/style/v2-style-dark.css ~/.config/wofi/style.css
