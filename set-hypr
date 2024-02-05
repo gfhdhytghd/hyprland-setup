@@ -255,7 +255,6 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln -sf ~/.config/HyprV/wofi/style/v2-style-dark.css ~/.config/wofi/style.css
     sudo cp ~/.config/HyprV/toggle /usr/bin/toggle
     sudo chmod +x /usr/bin/toggle
-    cp ~/.config/HyprV/.Xresources ~/
 
 
     # Copy the SDDM theme
