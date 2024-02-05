@@ -256,6 +256,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln  -sf ~/HyprV/hypr/hyprland-monitors-1.conf ~/HyprV/hypr/hyprland-monitors.conf
     sudo cp ~/.config/HyprV/toggle /usr/bin/toggle
     sudo chmod +x /usr/bin/toggle
+    touch ./.Xresources
 
 
     # Copy the SDDM theme
