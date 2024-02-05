@@ -1,5 +1,19 @@
-# HyprV3
-This is V3 of the Hyprland install script
+# Hyprland-setup
+
+This is the Hyprland install script.(Not Official). 
+
+Fork from https://github.com/SolDoesTech/HyprV3
+
+## Install using script
+
+```
+git clone https://github.com/gfhdhytghd/hyprland-setup.git
+cd hyprland-setup
+sudo chmod +x set-hypr
+./set-hypr
+```
+
+## Manual installation
 
 collection of dot config files for hyprland with a simple install script for a fresh Arch linux with yay
 
@@ -28,5 +42,3 @@ bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin \
 file-roller btop pacman-contrib starship ttf-jetbrains-mono-nerd \
 noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
 ```
-
-Or you can use the attached script "set-hypr" to install everything for you.
