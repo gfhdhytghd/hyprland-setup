@@ -1,4 +1,0 @@
-plugins = [
-    "DreamMaoMao/hycov"
-    {git = "https://github.com/DreamMaoMao/hycov.git"}
-]
