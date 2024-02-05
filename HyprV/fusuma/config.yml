@@ -1,0 +1,7 @@
+swipe:
+  3:
+    up:
+      command: "/home/wilf/.config/hypr/scripts/dropdown.sh"
+    down:
+      command: "/home/wilf/.config/hypr/scripts/dropdown.sh"
+
