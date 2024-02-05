@@ -260,6 +260,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     sudo chmod +x /usr/bin/toggle
     sudo chmod +x ~/.config//HyprV/waybar/scripts*
     sudo chmod +x ~/.config//HyprV/hypr/scripts/*
+    sudo chmod +x ~/.config/HyprV/hyprv_util
     touch ./.Xresources
 
 
