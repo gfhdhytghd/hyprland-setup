@@ -253,6 +253,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln -sf ~/.config/HyprV/wofi/config ~/.config/wofi/config
     ln -sf ~/.config/HyprV/fusuma/config.yml ~/.config/fusuma/config.yml
     ln -sf ~/.config/HyprV/wofi/style/v2-style-dark.css ~/.config/wofi/style.css
+    ln  -sf ~/HyprV/hypr/hyprland-monitors-1.conf ~/HyprV/hypr/hyprland-monitors.conf
     sudo cp ~/.config/HyprV/toggle /usr/bin/toggle
     sudo chmod +x /usr/bin/toggle
 
