@@ -4,6 +4,16 @@ This is the Hyprland install script.(Not Official).
 
 Fork from https://github.com/SolDoesTech/HyprV3
 
+## Note of using
+The default keybind will be in ~/.config/HyprV/hypr/hyprland-bind.conf.
+PLEASE READ IT.
+
+I recommand you to install hycov, I like this plugin very much, but for compatibility reasons I won't put it in the script for now.
+repo at:
+```
+https://github.com/DreamMaoMao/hycov
+```
+
 ## Install using script
 
 ```
