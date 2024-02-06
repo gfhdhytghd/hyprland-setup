@@ -9,6 +9,8 @@ The default keybind will be in ~/.config/HyprV/hypr/hyprland-bind.conf.
 PLEASE READ IT.
 
 I recommand you to install hycov, I like this plugin very much, but for compatibility reasons I won't put it in the script for now.
+NOTE that you have to re-install this plugin every time after upgrade or reinstall hyprland, otherwise it may cause hyprland crush.
+
 repo at:
 ```
 https://github.com/DreamMaoMao/hycov
