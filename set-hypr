@@ -279,7 +279,9 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     fi 
     
     # stage the .desktop file
+    sudo cp Extras/hyprland.desktop /usr/local/share/wayland-sessions/
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
+    
     
     if [[ "$ISNVIDIA" == true ]]; then
         # setup nvidia startup file
