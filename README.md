@@ -7,6 +7,7 @@ Fork from https://github.com/SolDoesTech/HyprV3
 ## Note of using
 The default keybind will be in ~/.config/HyprV/hypr/hyprland-bind.conf.
 PLEASE READ IT.
+If you need to change the monitor setting, go to ~/.config/HyprV/hypr/hyprland-monitor.conf.
 
 I recommand you to install hycov, I like this plugin very much, but for compatibility reasons I won't put it in the script for now.
 NOTE that you have to re-install this plugin every time after upgrade or reinstall hyprland, otherwise it may cause hyprland crush.
