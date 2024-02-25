@@ -182,7 +182,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     # Stage 1 - main components
     echo -e "$CNT - Stage 1 - Installing main components, this may take a while..."
-    for SOFTWR in hyprland-git kitty waybar jq mako swww swaylock-effects wofi wlogout xdg-desktop-portal-hyprland swappy grim slurp dolphin
+    for SOFTWR in hyprland-git kitty waybar jq mako swww swaylock-effects wofi wlogout xdg-desktop-portal-hyprland swappy grim slurp dolphin ninja meson cmake
     do
            install_software $SOFTWR 
     done
