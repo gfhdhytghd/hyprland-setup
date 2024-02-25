@@ -281,17 +281,6 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     # stage the .desktop file
     sudo cp Extras/hyprland.desktop /usr/local/share/wayland-sessions/
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
-    
-    
-    if [[ "$ISNVIDIA" == true ]]; then
-        # setup nvidia startup file
-        cp Extras/start-hypr-nvidia ~/.start-hypr-nvidia
-        sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/.start-hypr-nvidia/' /usr/share/wayland-sessions/hyprland.desktop
-    else
-        # setup non nvidia startup file
-        cp Extras/start-hypr-amd ~/.start-hypr-amd
-        sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/.start-hypr-amd/' /usr/share/wayland-sessions/hyprland.desktop
-    fi
 
     # setup the first look and feel as dark
     xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
