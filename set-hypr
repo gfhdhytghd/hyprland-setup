@@ -262,6 +262,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     sudo chmod +x ~/.config//HyprV/hypr/scripts/*
     sudo chmod +x ~/.config/HyprV/hyprv_util
     touch ./.Xresources
+    sudo gpasswd -a $USER input
+    newgrp input
 
 
     # Copy the SDDM theme
