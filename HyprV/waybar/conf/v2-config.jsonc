@@ -29,7 +29,7 @@
 
     "custom/power_btn": {
         "format": "",
-        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell -b 5)' & disown",
         "tooltip": false
     },
 
