@@ -1,7 +1,7 @@
 #!/bin/bash
 getchatstatue() {
-openstatue=$(hyprctl clients -j | jq '.[].title')
-if  [[ $openstatue =~ (.*)(ChatGPT)(.*) ]]
+openstatue=$(hyprctl clients -j | jq '.[].class')
+if  [[ $openstatue =~ (.*)(copilot)(.*) ]]
     then
         echo true
     else
@@ -10,7 +10,7 @@ fi
 }
 
 TOGGL=/tmp/chattoggle
-DROPTER='title:(ChatGPT)(.*)'
+DROPTER=copilot
 
 showchat() {
 if [ -f "$TOGGL" ]; then
@@ -28,5 +28,5 @@ if [[ $(getchatstatue) = true ]]
     then
         showchat
     else
-        touch /tmp/chattoggle && nohup  google-chrome-stable --app='https://chat.openai.com' &
+        touch /tmp/chattoggle && nohup  google-chrome-stable --app='https://chat.openai.com' --class='copilot' &
     fi
