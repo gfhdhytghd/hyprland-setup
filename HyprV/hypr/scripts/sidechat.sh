@@ -15,7 +15,7 @@ DROPTER='title:(ChatGPT)(.*)'
 showchat() {
 if [ -f "$TOGGL" ]; then
     #Hide terminal and unpin
-	hyprctl --batch "dispatch movewindowpixel 500 0,$DROPTER; dispatch pin $DROPTER; dispatch cyclenext"
+	hyprctl --batch "dispatch movewindowpixel 500 0,$DROPTER;"
 	rm $TOGGL
 else
     #Show terminal and pin
@@ -28,5 +28,5 @@ if [[ $(getchatstatue) = true ]]
     then
         showchat
     else
-        touch /tmp/chattoggle && nohup /opt/google/chrome/google-chrome --profile-directory=Default --app-id=jckaldkomadaenmmgladeopgmfbahfjm &
+        touch /tmp/chattoggle && nohup  google-chrome-stable --app='https://chat.openai.com' &
     fi
