@@ -189,7 +189,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     # Stage 2 - more tools
     echo -e "$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
-    for SOFTWR in polkit-gnome python-requests kweather pamixer pavucontrol brightnessctl bluez bluez-utils blueman network-manager-applet gvfs file-roller btop pacman-contrib ruby-fusuma
+    for SOFTWR in polkit-gnome python-requests kweather pamixer pavucontrol brightnessctl bluez bluez-utils blueman network-manager-applet gvfs file-roller btop pacman-contrib ruby-fusuma google-chrome
     do
         install_software $SOFTWR
     done
