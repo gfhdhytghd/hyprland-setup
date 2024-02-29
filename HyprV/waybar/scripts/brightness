@@ -27,13 +27,6 @@ get_icon() {
 
 # Exponential operations
 
-exp_calc() {
-	backlight="$(brightnessctl g)"&& current="${backlight%%%}"&& add=$(echo "scale=0;$[$current*5/100]/1+1" | bc)
-}
-
-pctg_calc() {
-	backlight="$(brightnessctl g)"&& current="${backlight%%%}"&& pctg=$(echo "scale=0;l($[$current*0.074239]^1000)/l(1.03783^1000)" | bc -l)
-}
 
 # Notify
 notify_user() {
@@ -42,12 +35,12 @@ notify_user() {
 
 # Increase brightness
 inc_backlight() {
-	exp_calc && brightnessctl set $add+ && get_icon && notify_user 
+	brightnessctl set 1%+ && get_icon && notify_user 
 }
 
 # Decrease brightness
 dec_backlight() {
-	exp_calc && brightnessctl set $add- && get_icon && notify_user
+	brightnessctl set 1%- && get_icon && notify_user
 }
 
 # Execute accordingly
