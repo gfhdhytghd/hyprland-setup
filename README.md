@@ -55,3 +55,61 @@ bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin \
 file-roller btop pacman-contrib starship ttf-jetbrains-mono-nerd \
 noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
 ```
+
+## Deafult key bind
+
+### Miscellaneous
+
+ALT+SPACE        open app menu
+
+SUPER+Q          open the terminal
+
+SUPER+F4         close the active window
+
+SUPER+L          Lock the screen
+
+SUPER+M          show the logout window
+
+SUPER+SHIFT+M    Force exit hyprland
+
+SUPER+F          start vscode
+
+SUPER+E          Show file brosewer
+
+SUPER+V          toggle floating
+
+SUPER+P          deindle
+
+SUPER+J          togglesplit,rotate the arrangement
+
+SUPER+O          expand window
+
+SUPER+SHIFT+O    FULL screen
+
+SUPER+S          screenshot
+
+SUPER+I          start vivaldi
+
+SUPER+B          toggle low battery mod
+
+SUPER+R          toggle start/stop v2raya
+
+SUPER+SHIFT+R    stop v2raya
+
+### Move focus with SUPER + arrow keys
+
+SUPER+up
+
+SUPER+down
+
+SUPER+left
+
+SUPER+right
+
+### Switch workspaces with SUPER + [0-9]
+### Scroll through existing workspaces with SUPER + scroll
+### Move/resize windows with mainMod + LMB/RMB and dragging
+
+SUPER+LMB         move windows
+SUPER+RMB         resize windows
+
