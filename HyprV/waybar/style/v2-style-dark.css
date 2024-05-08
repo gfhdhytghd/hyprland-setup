@@ -56,7 +56,6 @@ tooltip label{
 
 #custom-launch_wofi,
 #custom-power_profile,
-#custom-weather,
 #custom-myhyprv,
 #window,
 #cpu,
@@ -71,7 +70,15 @@ tooltip label{
     background: #1e1e2e;
     opacity: 0.8;
     padding: 0px 8px 0px 8px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
+    margin-top: 10px;
+    border: 0px;
+}
+#custom-weather{
+    background: #1e1e2e;
+    opacity: 0.8;
+    padding: 0px 1px 0px 6px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
@@ -79,14 +86,14 @@ tooltip label{
     background: #1e1e2e;
     opacity: 0.8;
     padding: 0px 5px 0px 10px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
 #custom-media-previous{
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 5px 0px 10px;
+    padding: 0px 8px 0px 10px;
     margin: 3px 0px 0px 0px;
     margin-top: 10px;
     border: 0px;
@@ -94,8 +101,8 @@ tooltip label{
 #custom-media-play{
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 6px 0px 5px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 5px 0px 5px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
@@ -103,7 +110,7 @@ tooltip label{
 #custom-media-next{
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 12px 0px 5px;
+    padding: 0px 12px 0px 3px;
     margin: 3px 0px 0px 0px;
     margin-top: 10px;
     border: 0px;
@@ -119,8 +126,8 @@ tooltip label{
 #custom-lock_screen{
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 3px 0px 14px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 3px 0px 12px;
+    margin: 3px 0px 0px 9px;
     margin-top: 10px;
     border: 0px;
 }
@@ -128,15 +135,15 @@ tooltip label{
 #custom-power_btn{
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 14px 0px 3px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 14px 0px 2px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
 #custom-light_dark{
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 14px 0px 7px;
+    padding: 1px 14px 1px 6px;
     margin: 3px 0px 0px 0px;
     margin-top: 10px;
     border: 0px;
