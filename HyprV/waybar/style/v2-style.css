@@ -50,7 +50,6 @@ tooltip label{
 
 #custom-launch_wofi,
 #custom-power_profile,
-#custom-weather,
 #custom-myhyprv,
 #window,
 #cpu,
@@ -65,31 +64,40 @@ tooltip label{
     background: #e7e7ec;
     opacity: 0.8;
     padding: 0px 8px 0px 8px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
+#custom-weather{
+    background: #e7e7ec;
+    opacity: 0.8;
+    padding: 0px 1px 0px 6px;
+    margin: 3px 0px 1px 0px;
+    margin-top: 10px;
+    border: 0px;
+}
+
 #temperature{
     background: #e7e7ec;
     opacity: 0.8;
     padding: 0px 5px 0px 10px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
 #custom-media-previous{
     background: #e7e7ec;
     opacity: 0.8;
-    padding: 0px 5px 0px 10px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 8px 0px 10px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
 #custom-media-play{
     background: #e7e7ec;
     opacity: 0.8;
-    padding: 0px 6px 0px 5px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 5px 0px 5px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
@@ -97,8 +105,8 @@ tooltip label{
 #custom-media-next{
     background: #e7e7ec;
     opacity: 0.8;
-    padding: 0px 12px 0px 5px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 12px 0px 3px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
@@ -106,15 +114,15 @@ tooltip label{
     background: #e7e7ec;
     opacity: 0.8;
     padding: 0px 0px 0px 0px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
 #custom-lock_screen{
     background: #e7e7ec;
     opacity: 0.8;
-    padding: 0px 3px 0px 14px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 4px 0px 12px;
+    margin: 3px 0px 1px 9px;
     margin-top: 10px;
     border: 0px;
 }
@@ -122,16 +130,16 @@ tooltip label{
 #custom-power_btn{
     background: #e7e7ec;
     opacity: 0.8;
-    padding: 0px 14px 0px 3px;
-    margin: 3px 0px 0px 0px;
+    padding: 0px 14px 0px 2px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
 #custom-light_dark{
     background: #e7e7ec;
     opacity: 0.8;
-    padding: 0px 14px 0px 7px;
-    margin: 3px 0px 0px 0px;
+    padding: 1px 14px 1px 6px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
@@ -139,7 +147,7 @@ tooltip label{
     background: #e7e7ec;
     opacity: 0.8;
     padding: 0px 0px 0px 10px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
 }
@@ -158,7 +166,7 @@ tooltip label{
     background: #e7e7ec;
     opacity: 0.8;
     padding: 0px 14px 0px 0px;
-    margin: 3px 0px 0px 0px;
+    margin: 3px 0px 1px 0px;
     margin-top: 10px;
     border: 0px;
     margin-right: 9.5px;
