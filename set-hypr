@@ -182,7 +182,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     # Stage 1 - main components
     echo -e "$CNT - Stage 1 - Installing main components, this may take a while..."
-    for SOFTWR in hyprland-git kitty waybar jq mako swww swaylock-effects wofi wlogout xdg-desktop-portal-hyprland swappy grim slurp dolphin ninja meson cmake
+    for SOFTWR in hyprland-git kitty aylurs-gtk-shell jq mako swww swaylock-effects wofi wlogout xdg-desktop-portal-hyprland swappy grim slurp dolphin ninja meson cmake
     do
            install_software $SOFTWR 
     done
@@ -249,6 +249,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln -sf ~/.config/HyprV/waybar/conf/v2-config.jsonc ~/.config/waybar/config.jsonc
     ln -sf ~/.config/HyprV/waybar/style/v2-style-dark.css ~/.config/waybar/style.css
     cp ~/.config/HyprV/wlogout/* ~/.config/wlogout/
+    cp -r ~/.config/HyprV/ags ~/.config/ags
     ln -sf ~/.config/HyprV/wlogout/* ~/.config/wlogout/
     sudo rm /usr/share/wlogout/icons/*
     # sudo cp ~/.config/HyprV/wlogout/icons/* /usr/share/wlogout/icons

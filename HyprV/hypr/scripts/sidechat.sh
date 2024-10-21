@@ -1,7 +1,7 @@
 #!/bin/bash
 getchatstatue() {
 openstatue=$(hyprctl clients -j | jq '.[].class')
-if  [[ $openstatue =~ (.*)(copilot)(.*) ]]
+if  [[ $openstatue =~ (.*)(chrome-chat.openai.com__-Default)(.*) ]]
     then
         echo true
     else
@@ -10,7 +10,7 @@ fi
 }
 
 TOGGL=/tmp/chattoggle
-DROPTER=copilot
+DROPTER='chrome-chat.openai.com__-Default'
 
 showchat() {
 if [ -f "$TOGGL" ]; then
@@ -28,5 +28,5 @@ if [[ $(getchatstatue) = true ]]
     then
         showchat
     else
-        touch /tmp/chattoggle && nohup  google-chrome-stable --app='https://chat.openai.com' --class='copilot' &
+        touch /tmp/chattoggle && nohup  chromium --ignore-gpu-blocklist --enable-zero-copy --enable-features=VaapiVideoDecodeLinuxGL --ozone-platform-hint=auto --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=TouchpadOverscrollHistoryNavigation --enable-wayland-ime --app='https://chat.openai.com' &
     fi
