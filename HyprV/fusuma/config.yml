@@ -4,4 +4,7 @@ swipe:
       command: "/home/wilf/.config/hypr/scripts/dropdown.sh"
     down:
       command: "/home/wilf/.config/hypr/scripts/dropdown.sh"
-
+    left:
+      command: "/home/wilf/.config/hypr/scripts/sidechat.sh"
+    right:
+      command: "/home/wilf/.config/hypr/scripts/sidechat.sh"

@@ -2,8 +2,8 @@
 TOGGLE=/tmp/$1
 if [ -f "$TOGGLE" ]; then
     rm $TOGGLE &&
-    eval $2 
+    $2 
 else
     touch $TOGGLE &&
-    eval $3
+    $3
 fi

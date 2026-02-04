@@ -11,9 +11,9 @@ on-touch=dismiss
 
 # STYLE OPTIONS
 font=Fantasque Sans Mono 14
-width=300
+width=400
 height=100
-margin=9.5
+margin=9
 padding=15
 border-size=2
 border-radius=9
