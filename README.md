@@ -22,39 +22,39 @@ https://github.com/DreamMaoMao/hycov
 ```
 git clone https://github.com/gfhdhytghd/hyprland-setup.git
 cd hyprland-setup
-sudo chmod +x set-hypr
 ./set-hypr
 ```
 
-## Manual installation
+Default behavior:
+- Interactive mode.
+- Installs package group `core`.
+- Risky system changes require confirmation.
 
-collection of dot config files for hyprland with a simple install script for a fresh Arch linux with yay
+Useful examples:
 
-You can grab the config files and install packages by hand with this command
+```bash
+# Install core + theme packages, deploy config, and enable bluetooth.
+./set-hypr --groups core,theme --apply-config --enable-service bluetooth
 
-Do this ONLY if you need Nvidia support (do this first)
+# Include NVIDIA setup and SDDM theme.
+./set-hypr --with-nvidia --apply-sddm-theme --enable-service sddm
+
+# Non-interactive run (risky actions must be explicit flags).
+./set-hypr --non-interactive --yes \
+  --groups core,theme \
+  --apply-config \
+  --enable-service bluetooth,sddm \
+  --with-nvidia \
+  --disable-wifi-powersave
 ```
-yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
 
-Add modules: nvidia nvidia_modeset nvidia_uvm nvidia_drm to /etc/mkinitcpio.conf
+Show all options:
 
-Generate new image: sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
-
-Add/create the following: options nvidia-drm modeset=1 in /etc/modprobe.d/nvidia.conf
-
-reboot!
+```bash
+./set-hypr --help
 ```
 
-Now install the below for Hyprland
-
-```
-yay -S hyprland kitty jq mako waybar-hyprland swww swaylock-effects \
-wofi wlogout xdg-desktop-portal-hyprland swappy grim slurp thunar \
-polkit-gnome python-requests pamixer pavucontrol brightnessctl bluez \
-bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin \
-file-roller btop pacman-contrib starship ttf-jetbrains-mono-nerd \
-noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
-```
+Logs are written to `install.log` by default (customizable with `--log-file`).
 
 ## Deafult key bind
 
@@ -112,4 +112,3 @@ SUPER+right
 
 SUPER+LMB         move windows
 SUPER+RMB         resize windows
-
