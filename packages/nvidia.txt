@@ -1,0 +1,7 @@
+# NVIDIA specific packages.
+extra/linux-headers
+extra/nvidia-dkms
+extra/qt5-wayland
+extra/qt5ct
+extra/libva
+aur/libva-nvidia-driver-git

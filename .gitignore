@@ -1,0 +1,9 @@
+# logs and temp outputs
+*.log
+**/nohup.out
+
+# local backup/temp files
+*.bak
+*-bak
+*-bak.*
+*debugtemp*

@@ -1,0 +1,5 @@
+# Optional applications and extras.
+extra/python-requests
+extra/kweather
+aur/ruby-fusuma
+aur/google-chrome

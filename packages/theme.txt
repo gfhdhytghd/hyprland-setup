@@ -1,0 +1,10 @@
+# Theme and appearance packages.
+extra/starship
+extra/ttf-jetbrains-mono-nerd
+extra/noto-fonts-emoji
+extra/lxappearance
+extra/xfce4-settings
+extra/qt5-svg
+extra/qt5-quickcontrols2
+extra/qt5-graphicaleffects
+extra/sddm
