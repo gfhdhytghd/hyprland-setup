@@ -93,12 +93,6 @@ deploy_hyprv_config() {
     link_path "$dst_hyprv/kitty" "$HOME/.config/kitty"
     link_path "$dst_hyprv/ags" "$HOME/.config/ags"
 
-    local monitors_src="$dst_hyprv/hypr/hyprland-monitors-1.conf"
-    local monitors_link="$dst_hyprv/hypr/hyprland-monitors.conf"
-    if [[ -f "$monitors_src" ]]; then
-        run_cmd "Setting default monitor config" ln -sfn "$monitors_src" "$monitors_link"
-    fi
-
     shopt -s nullglob
     local exec_targets=(
         "$dst_hyprv/hyprv_util"

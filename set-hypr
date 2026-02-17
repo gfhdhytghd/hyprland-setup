@@ -24,6 +24,7 @@ INSTALL_WLOGOUT_ICONS="ask"
 ADD_INPUT_GROUP="ask"
 ACTIVATE_STARSHIP="ask"
 START_SDDM_NOW="ask"
+INSTALL_HYPR_PLUGINS="ask"
 
 usage() {
     cat <<USAGE
@@ -52,6 +53,8 @@ Options:
   --activate-starship              Copy starship.toml and init line in ~/.bashrc.
   --enable-service LIST            Comma list: bluetooth,sddm.
   --start-sddm-now                 Start sddm.service at end.
+  --install-hypr-plugins           Install Hyprland plugins using hyprpm.
+  --skip-hypr-plugins              Skip Hyprland plugin installation.
 
   -h, --help                       Show this help.
 USAGE
@@ -137,6 +140,12 @@ parse_args() {
                 ;;
             --start-sddm-now)
                 START_SDDM_NOW=true
+                ;;
+            --install-hypr-plugins)
+                INSTALL_HYPR_PLUGINS=true
+                ;;
+            --skip-hypr-plugins)
+                INSTALL_HYPR_PLUGINS=false
                 ;;
             -h|--help)
                 usage
@@ -310,6 +319,10 @@ main() {
 
     if confirm_action "$ACTIVATE_STARSHIP" "Apply starship config and shell init line?" "n"; then
         apply_starship_config "$REPO_ROOT" || die "Starship config step failed" 4
+    fi
+
+    if confirm_action "$INSTALL_HYPR_PLUGINS" "Install Hyprland plugins via hyprpm (hycov, hyprland-plugins, hyprgrass)?" "n"; then
+        install_hypr_plugins || die "Hyprland plugin installation failed" 4
     fi
 
     if confirm_risky_action "$DISABLE_WIFI_POWERSAVE" "Disable WiFi powersave (NetworkManager)?"; then

@@ -158,3 +158,17 @@ install_wlogout_icons() {
     run_sudo_cmd "Ensuring /etc/wlogout-icon exists" mkdir -p /etc/wlogout-icon
     run_sudo_cmd "Copying wlogout icons" cp -af "$icons_src/." /etc/wlogout-icon/
 }
+
+install_hypr_plugins() {
+    if ! command_exists hyprpm; then
+        die "hyprpm is not available; install/update Hyprland first and re-run with --install-hypr-plugins." 4
+    fi
+
+    run_cmd "Updating hyprpm" hyprpm update
+    run_cmd "Adding plugin source: hycov" hyprpm add https://github.com/ernestoCruz05/hycov
+    run_cmd "Adding plugin source: hyprland-plugins" hyprpm add https://github.com/hyprwm/hyprland-plugins
+    run_cmd "Adding plugin source: hyprgrass" hyprpm add https://github.com/horriblename/hyprgrass
+    run_cmd "Enabling plugin: hyprgrass" hyprpm enable hyprgrass
+    run_cmd "Enabling plugin: hycov" hyprpm enable hycov
+    run_cmd "Enabling plugin: hyprscrolling" hyprpm enable hyprscrolling
+}

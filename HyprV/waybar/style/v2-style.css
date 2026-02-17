@@ -171,11 +171,11 @@ tooltip label{
     border: 0px;
 }
 
-#tray, #custom-lock_screen, #temperature, #backlight,#custom-media-previous,#custom-waybar-media,#custom-launch_wofi, #cpu {
+#custom-lock_screen, #temperature, #backlight,#custom-media-previous,#custom-waybar-media,#custom-launch_wofi, #cpu {
     border-radius: 10px 0px 0px 10px;
 }
 
-#custom-light_dark, #custom-power_btn, #workspaces, #pulseaudio.microphone, #battery, #disk{
+#custom-light_dark, #custom-power_btn, #workspaces, #pulseaudio.microphone, #battery, #disk, #network{
     border-radius: 0px 10px 10px 0px;
     margin-right: 9.5px;
 }
@@ -234,6 +234,23 @@ tooltip label{
 #battery {
     color: #1d7715;
     border-left: 0px;
+}
+
+#cpu,
+#memory {
+    padding-right: 1px;
+}
+
+#network {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#tray {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 6px;
 }
 
 #custom-waybar-media.paused {

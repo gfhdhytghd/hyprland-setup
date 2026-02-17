@@ -7,7 +7,7 @@
     "gtk-layer-shell": true,
     "height": 47,
     "margin-bottom": 10,
-    "modules-left": ["custom/launch_wofi","hyprland/workspaces","cpu","memory","disk","hyprland/window"],
+    "modules-left": ["custom/launch_wofi","hyprland/workspaces","cpu","memory","network","hyprland/window"],
     "modules-center": ["custom/lock_screen","clock","custom/power_btn"],
     "modules-right": ["temperature","custom/power_profile","battery", "custom/media-previous","custom/media-play","custom/media-next","pulseaudio","tray","custom/power-profile","custom/notification","custom/light_dark"],
     "include": ["~/.config/HyprV/waybar/conf/hyprv-util.jsonc"],
@@ -160,6 +160,16 @@
         "critical-threshold": 70,
         "format-critical": " {temperatureF}°F",
         "on-click": "alacritty -t btop -o window.startup_mode=Fullscreen -e btop"
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": "󰖩 {bandwidthTotalBytes}",
+        "format-ethernet": "󰈀 {bandwidthTotalBytes}",
+        "format-linked": "󰌘 nocon",
+        "format-disconnected": "󰤮 nocon",
+        "tooltip-format": "↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}\n{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "format-alt": "{essid} ({signalStrength}%) 󰖩"
     },
 
     "custom/waybar-media": {
