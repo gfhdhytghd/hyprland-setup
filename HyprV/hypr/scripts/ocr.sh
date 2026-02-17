@@ -5,7 +5,7 @@ export OCR_TRANSLATE_BACKEND=qwen3_genai
 export OCR_USE_LAIS=1
 export OCR_QWEN_NO_THINK=1
  export OCR_QWEN_NO_THINK_MODE=soft
-BIN="/home/wilf/data/model/ocr_blast/target/release/ocr_blast"
+BIN="$HOME/data/model/ocr_blast/target/release/ocr_blast"
 
 if ! command -v grim >/dev/null; then
   echo "grim not found" >&2
@@ -20,8 +20,8 @@ if [ ! -x "$BIN" ]; then
   exit 1
 fi
 
-export OCR_ENGINE_PY="/home/wilf/data/model/.venv/bin/python"
-export OCR_ENGINE_SCRIPT="/home/wilf/data/model/run_paddleocr_openvino_npu.py"
+export OCR_ENGINE_PY="$HOME/data/model/.venv/bin/python"
+export OCR_ENGINE_SCRIPT="$HOME/data/model/run_paddleocr_openvino_npu.py"
 export OV_DEVICE=${OV_DEVICE:-NPU}
 export OV_DEVICE_DET=${OV_DEVICE_DET:-$OV_DEVICE}
 export OV_DEVICE_REC=${OV_DEVICE_REC:-$OV_DEVICE}

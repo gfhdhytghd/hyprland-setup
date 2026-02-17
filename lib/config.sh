@@ -91,7 +91,6 @@ deploy_hyprv_config() {
     link_path "$dst_hyprv/alacritty" "$HOME/.config/alacritty"
     link_path "$dst_hyprv/Konsole" "$HOME/.config/Konsole"
     link_path "$dst_hyprv/kitty" "$HOME/.config/kitty"
-    link_path "$dst_hyprv/ags" "$HOME/.config/ags"
 
     shopt -s nullglob
     local exec_targets=(

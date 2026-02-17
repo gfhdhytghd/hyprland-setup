@@ -174,10 +174,10 @@
 
     "custom/waybar-media": {
         "return-type": "json",
-        "exec": "/home/wilf/.config/HyprV/waybar/scripts/waybar-media.py status",
-        "on-click": "/home/wilf/.config/HyprV/waybar/scripts/waybar-media.py playpause",
-        "on-scroll-up": "/home/wilf/.config/HyprV/waybar/scripts/waybar-media.py previous",
-        "on-scroll-down": "/home/wilf/.config/HyprV/waybar/scripts/waybar-media.py next",
+        "exec": "$HOME/.config/HyprV/waybar/scripts/waybar-media.py status",
+        "on-click": "$HOME/.config/HyprV/waybar/scripts/waybar-media.py playpause",
+        "on-scroll-up": "$HOME/.config/HyprV/waybar/scripts/waybar-media.py previous",
+        "on-scroll-down": "$HOME/.config/HyprV/waybar/scripts/waybar-media.py next",
         "escape": true
     },
     "custom/media-previous": {

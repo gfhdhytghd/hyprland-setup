@@ -115,7 +115,6 @@ ln -sfn ~/.config/HyprV/swaync ~/.config/swaync
 ln -sfn ~/.config/HyprV/alacritty ~/.config/alacritty
 ln -sfn ~/.config/HyprV/Konsole ~/.config/Konsole
 ln -sfn ~/.config/HyprV/kitty ~/.config/kitty
-ln -sfn ~/.config/HyprV/ags ~/.config/ags
 
 chmod +x ~/.config/HyprV/hyprv_util ~/.config/HyprV/toggle
 find ~/.config/HyprV/waybar/scripts ~/.config/HyprV/hypr/scripts -type f -exec chmod +x {} \;

@@ -1,10 +1,10 @@
 swipe:
   3:
     up:
-      command: "/home/wilf/.config/hypr/scripts/dropdown.sh"
+      command: "$HOME/.config/hypr/scripts/dropdown.sh"
     down:
-      command: "/home/wilf/.config/hypr/scripts/dropdown.sh"
+      command: "$HOME/.config/hypr/scripts/dropdown.sh"
     left:
-      command: "/home/wilf/.config/hypr/scripts/sidechat.sh"
+      command: "$HOME/.config/hypr/scripts/sidechat.sh"
     right:
-      command: "/home/wilf/.config/hypr/scripts/sidechat.sh"
+      command: "$HOME/.config/hypr/scripts/sidechat.sh"
