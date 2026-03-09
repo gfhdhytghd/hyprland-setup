@@ -1,13 +1,20 @@
 # Core Hyprland runtime and utility packages.
 extra/hyprland
-extra/kitty
+extra/hypridle
+extra/hyprlock
+extra/alacritty
+extra/ghostty
 extra/jq
 extra/mako
+extra/rofi
 extra/wofi
+extra/swaync
 extra/xdg-desktop-portal-hyprland
 extra/swappy
 extra/grim
 extra/slurp
+extra/wl-clipboard
+extra/cliphist
 extra/dolphin
 extra/ninja
 extra/meson
@@ -24,6 +31,7 @@ extra/gvfs
 extra/file-roller
 extra/btop
 extra/pacman-contrib
+extra/playerctl
+extra/ydotool
 aur/swww
-aur/swaylock-effects
 aur/wlogout

@@ -1,67 +1,19 @@
-# Hyprland-setup
+# Hyprland Setup
 
-This is the Hyprland install script.(Not Official). 
+Personal Hyprland configuration, originally forked from <https://github.com/SolDoesTech/HyprV3>.
 
-Fork from https://github.com/SolDoesTech/HyprV3
+This repo keeps only the manual installation flow. There is no bundled installer script anymore.
 
-## Note of using
-The default keybind will be in ~/.config/HyprV/hypr/hyprland-bind.conf.
-PLEASE READ IT.
-If you need to change the monitor setting, go to ~/.config/HyprV/hypr/hyprland-monitor.conf.
+## Notes
 
-Hyprland plugins can now be installed from this repo script, and you can still install them manually.
-NOTE that plugins often need reinstall/re-enable after Hyprland upgrade/reinstall.
+- Default keybinds live in `HyprV/hypr/hyprland-bind.conf`.
+- Public monitor config stays generic. Keep machine-specific monitor presets only in your local `~/.config/HyprV/`.
+- The lock screen uses `hyprlock`, with theme assets tracked as a git submodule at `HyprV/hypr/sakoora.hyprlock`.
+- Overview is configured for `hymission`, not `hycov`.
 
-## Install using script
+## Manual Install
 
-```
-git clone https://github.com/gfhdhytghd/hyprland-setup.git
-cd hyprland-setup
-./set-hypr
-```
-
-Default behavior:
-- Interactive mode.
-- Installs package group `core`.
-- Risky system changes require confirmation.
-
-Useful examples:
-
-```bash
-# Install core + theme packages, deploy config, and enable bluetooth.
-./set-hypr --groups core,theme --apply-config --enable-service bluetooth
-
-# Include NVIDIA setup and SDDM theme.
-./set-hypr --with-nvidia --apply-sddm-theme --enable-service sddm
-
-# Non-interactive run (risky actions must be explicit flags).
-./set-hypr --non-interactive --yes \
-  --groups core,theme \
-  --apply-config \
-  --enable-service bluetooth,sddm \
-  --with-nvidia \
-  --disable-wifi-powersave
-```
-
-Show all options:
-
-```bash
-./set-hypr --help
-```
-
-Install plugins during script run:
-
-```bash
-./set-hypr --install-hypr-plugins
-```
-
-Logs are written to `install.log` by default (customizable with `--log-file`).
-
-## Full manual install guide (from zero)
-
-This is a full manual flow without relying on `./set-hypr` automation.
-
-1. Install base tools and an AUR helper (`yay`)
+1. Install base tooling and an AUR helper.
 
 ```bash
 sudo pacman -Syu --needed git base-devel
@@ -71,34 +23,33 @@ makepkg -si
 cd ..
 ```
 
-2. Clone this repo
+2. Clone this repo with submodules.
 
 ```bash
-git clone https://github.com/gfhdhytghd/hyprland-setup.git
+git clone --recurse-submodules https://github.com/gfhdhytghd/hyprland-setup.git
 cd hyprland-setup
 ```
 
-3. Install package groups manually
+If you already cloned without submodules:
 
 ```bash
-# core
-yay -S --needed --noconfirm \
-  hyprland kitty jq mako wofi xdg-desktop-portal-hyprland swappy grim slurp \
-  dolphin ninja meson cmake polkit-gnome pamixer pavucontrol brightnessctl \
-  bluez bluez-utils blueman network-manager-applet gvfs file-roller btop \
-  pacman-contrib swww swaylock-effects wlogout
-
-# theme (optional but recommended)
-yay -S --needed --noconfirm \
-  starship ttf-jetbrains-mono-nerd noto-fonts-emoji lxappearance xfce4-settings \
-  qt5-svg qt5-quickcontrols2 qt5-graphicaleffects sddm
-
-# apps (optional)
-yay -S --needed --noconfirm \
-  python-requests kweather ruby-fusuma google-chrome
+git submodule update --init --recursive
 ```
 
-4. Deploy config to `~/.config`
+3. Install the package sets you want.
+
+```bash
+# Core + theme + optional apps
+yay -S --needed $(awk -F/ '!/^#/ && NF == 2 {print $2}' \
+  packages/core.txt \
+  packages/theme.txt \
+  packages/apps.txt)
+
+# Optional NVIDIA stack
+yay -S --needed $(awk -F/ '!/^#/ && NF == 2 {print $2}' packages/nvidia.txt)
+```
+
+4. Deploy the config into `~/.config`.
 
 ```bash
 cp -a HyprV ~/.config/
@@ -113,96 +64,48 @@ ln -sfn ~/.config/HyprV/fusuma ~/.config/fusuma
 ln -sfn ~/.config/HyprV/rofi ~/.config/rofi
 ln -sfn ~/.config/HyprV/swaync ~/.config/swaync
 ln -sfn ~/.config/HyprV/alacritty ~/.config/alacritty
+ln -sfn ~/.config/HyprV/ghostty ~/.config/ghostty
 ln -sfn ~/.config/HyprV/Konsole ~/.config/Konsole
-ln -sfn ~/.config/HyprV/kitty ~/.config/kitty
 
 chmod +x ~/.config/HyprV/hyprv_util ~/.config/HyprV/toggle
 find ~/.config/HyprV/waybar/scripts ~/.config/HyprV/hypr/scripts -type f -exec chmod +x {} \;
 touch ~/.Xresources
 ```
 
-5. Enable services
+5. Install the Hyprland plugins used by this config.
+
+```bash
+hyprpm update
+hyprpm add https://github.com/gfhdhytghd/hymission
+hyprpm add https://github.com/horriblename/hyprgrass
+hyprpm enable hymission
+hyprpm enable hyprgrass
+hyprpm reload -n
+```
+
+6. Enable the services you want.
 
 ```bash
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable sddm.service
 ```
 
-6. (Optional) Install NVIDIA-related packages
+7. Log out/in or reboot, then start Hyprland from your display manager.
 
-```bash
-yay -S --needed --noconfirm \
-  linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
-```
+## Theme / Lock Notes
 
-7. Install Hyprland plugins with `hyprpm`
+- `hyprlock` reads `~/.config/hypr/hyprlock.conf`.
+- The theme assets referenced by that config come from the `sakoora.hyprlock` submodule.
+- `HyprV/waybar/scripts/baraction` also toggles Ghostty colors. If you use it, make sure your preferred Qt/GTK theme tools are installed.
 
-```bash
-hyprpm update
-hyprpm add https://github.com/ernestoCruz05/hycov
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm add https://github.com/horriblename/hyprgrass
-hyprpm enable hyprgrass
-hyprpm enable hycov
-hyprpm enable hyprscrolling
-hyprpm reload -n
-```
+## Default Keybinds
 
-8. Reboot or log out/in, then start Hyprland from your display manager.
-
-## Deafult key bind
-
-### Miscellaneous
-
-ALT+SPACE        open app menu
-
-SUPER+Q          open the terminal
-
-SUPER+F4         close the active window
-
-SUPER+L          Lock the screen
-
-SUPER+M          show the logout window
-
-SUPER+SHIFT+M    Force exit hyprland
-
-SUPER+F          start vscode
-
-SUPER+E          Show file brosewer
-
-SUPER+V          toggle floating
-
-SUPER+P          deindle
-
-SUPER+J          togglesplit,rotate the arrangement
-
-SUPER+O          expand window
-
-SUPER+SHIFT+O    FULL screen
-
-SUPER+S          screenshot
-
-SUPER+I          start vivaldi
-
-SUPER+B          toggle low battery mod
-
-SUPER+R          toggle start/stop v2raya
-
-SUPER+SHIFT+R    stop v2raya
-
-### Move focus with SUPER + arrow keys
-
-SUPER+up
-
-SUPER+down
-
-SUPER+left
-
-SUPER+right
-
-### Switch workspaces with SUPER + [0-9]
-### Scroll through existing workspaces with SUPER + scroll
-### Move/resize windows with mainMod + LMB/RMB and dragging
-
-SUPER+LMB         move windows
-SUPER+RMB         resize windows
+- `ALT+SPACE`: app launcher
+- `SUPER+Q`: terminal (`ghostty`)
+- `SUPER+L`: lock screen (`hyprlock`)
+- `SUPER+M`: logout menu
+- `SUPER+E`: file manager
+- `SUPER+S`: screenshot
+- `SUPER+TAB`: `hymission` overview
+- `SUPER+[1-0]`: switch workspace
+- `SUPER+SHIFT+[1-0]`: move window to workspace

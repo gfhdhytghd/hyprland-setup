@@ -1,0 +1,3 @@
+[submodule "HyprV/hypr/sakoora.hyprlock"]
+	path = HyprV/hypr/sakoora.hyprlock
+	url = https://github.com/pinkSakoora/sakoora.hyprlock.git

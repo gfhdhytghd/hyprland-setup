@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#Check the version 
+#Check the version
 HYPRVER=$(readlink -f ~/.config/waybar/style.css   | cut -d '-' -f1 | cut -d '/' -f8)
 case $HYPRVER in
     v1)
@@ -25,10 +25,12 @@ THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f3| cut -d '.' -f
 if [[ $THEMEIS == "" ]]; then
     SWITCHTO="-dark"
     MODESTR="Dark"
+    orchisswitch="Dark"
     SWITCHTOL="-dark"
 else
-    MODESTR="Light"
     SWITCHTO=""
+    MODESTR="Light"
+    orchisswitch=""
     SWITCHTOL="-light"
 fi
 
@@ -38,34 +40,47 @@ notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "switchi
 #set the wofi theme
 #ln -sf ~/.config/HyprV/wofi/style/$VER'style'$SWITCHTO.css ~/.config/wofi/style.css
 
-set the rofi theme
+#set the waybar theme
+ln -sf ~/.config/HyprV/waybar/style/$VER'style'$SWITCHTO.css ~/.config/waybar/style.css&
+
+
+#set the rofi theme
 ln -sf ~/.config/HyprV/rofi/colors$SWITCHTO.rasi ~/.config/rofi/colors.rasi&
 
 #set the mako theme
 #ln -sf ~/.config/HyprV/mako/conf/config$SWITCHTO ~/.config/mako/config
 
 ln -sfn ~/.config/HyprV/alacritty/'alacritty'$SWITCHTO.toml ~/.config/alacritty/alacritty.toml&
+# Keep Ghostty config path stable; replace file content instead of toggling symlink target.
+ln -sfn ~/.config/HyprV/ghostty/'ghostty'$SWITCHTO.toml ~/.config/ghostty/config
+# Reload running Ghostty windows by sending the default reload shortcut (Ctrl+Shift+,).
+if command -v hyprctl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
+    hyprctl clients -j 2>/dev/null | jq -r '
+        .[] | select((.class // "" | ascii_downcase) | contains("ghostty")) | .address
+    ' | while read -r addr; do
+        [ -n "$addr" ] || continue
+        hyprctl dispatch sendshortcut "CTRL SHIFT, comma, address:$addr" >/dev/null 2>&1 || true
+    done
+fi
 
 #set the xfce theme
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"&
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita$SWITCHTO"&
 
-#set the GTK theme
-THEME="Orchis-${MODESTR}-Compact"
+
 
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-$MODESTR-Compact"&
-gsettings set org.gnome.desktop.interface icon-theme "Tela-circle$SWITCHTOL"&
+gsettings set org.gnome.desktop.interface icon-theme "Fluent$SWITCHTOL"&
 gsettings set org.gnome.desktop.interface color-scheme "prefer$SWITCHTOL"&
-
+if command -v kvantummanager >/dev/null 2>&1; then
+    kvantummanager --set Orchis$orchisswitch
+fi
 
 #change the background image and be cool about it ;)
 swww img ~/.config/HyprV/backgrounds/$VER'background'$SWITCHTO.jpg --transition-fps 180 --transition-type wipe --transition-duration 2&
 nohup swww-daemon &
 #update the sddm image
 #cp -f ~/.config/HyprV/backgrounds/$VER'background'$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
-
-#set the waybar theme
-ln -sf ~/.config/HyprV/waybar/style/$VER'style'$SWITCHTO.css ~/.config/waybar/style.css&
 
 # #reset mako
 # sleep 1
@@ -94,4 +109,3 @@ done
 #set the swaync theme
 ln -sf ~/.config/HyprV/swaync/style$SWITCHTO.css ~/.config/swaync/style.css&
 swaync-client -rs
-
